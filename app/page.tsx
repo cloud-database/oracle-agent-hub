@@ -51,9 +51,9 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="flex items-end justify-between mb-10">
             <div>
-              <h2 className="text-3xl font-bold text-navy-950 mb-2">Featured Agent Kits</h2>
+              <h2 className="text-3xl font-bold text-navy-950 mb-2">Featured Agentic Kits</h2>
               <p className="text-navy-600 max-w-xl">
-                Pre-built, tested and ready-to-deploy agentic capabilities for Oracle environments.
+                Pre-built, tested and ready-to-deploy agentic tools for Oracle environments.
               </p>
             </div>
             <Link

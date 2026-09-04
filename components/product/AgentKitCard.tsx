@@ -6,9 +6,10 @@ import {
   GitBranch,
   ArrowRightLeft,
   BrainCircuit,
+  BarChart2,
   Users,
   Layers,
-  ChevronRight,
+  ShoppingCart,
 } from "lucide-react";
 import type { AgentKit } from "@/types";
 import { VerificationBadge } from "./VerificationBadge";
@@ -21,6 +22,7 @@ const iconMap: Record<string, React.ElementType> = {
   GitBranch,
   ArrowRightLeft,
   BrainCircuit,
+  BarChart2,
 };
 
 const categoryColors: Record<string, string> = {
@@ -30,6 +32,7 @@ const categoryColors: Record<string, string> = {
   "Schema & Documentation": "bg-purple-50 text-purple-700",
   Migration: "bg-teal-50 text-teal-700",
   "Oracle AI Database": "bg-cyan-50 text-cyan-700",
+  "Business Intelligence": "bg-blue-50 text-blue-700",
 };
 
 interface AgentKitCardProps {
@@ -116,13 +119,15 @@ export function AgentKitCard({ kit, featured = false }: AgentKitCardProps) {
 
       {/* Footer */}
       <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-between gap-3 bg-slate-50/50">
-        <span className="text-sm font-semibold text-navy-900">{kit.price.label}</span>
+        <span className="text-lg font-bold text-navy-950">
+          {kit.price.amount !== null ? `$${kit.price.amount}` : kit.price.label}
+        </span>
         <Link
           href={`/agent-kits/${kit.slug}`}
           className="inline-flex items-center gap-1.5 rounded-lg bg-brand-blue text-white text-sm font-medium px-4 py-2 hover:bg-blue-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2"
         >
-          Explore Kit
-          <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
+          <ShoppingCart className="w-3.5 h-3.5" aria-hidden="true" />
+          View Details
         </Link>
       </div>
     </div>

@@ -1,40 +1,45 @@
-import { Database, Cpu, ShieldCheck, Server } from "lucide-react";
+import { Database, Brain, ShieldCheck, Rocket } from "lucide-react";
 
 const features = [
   {
     icon: Database,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
     title: "Built for Oracle",
-    description: "Deeply focused on Oracle database technologies and workflows.",
+    description: "Deeply integrated with Oracle Database, 19c, 21c, 23c, 26 AI.",
   },
   {
-    icon: Cpu,
+    icon: Brain,
+    iconBg: "bg-violet-100",
+    iconColor: "text-violet-600",
     title: "Agentic Workflows",
-    description:
-      "Agents that can analyze, reason, orchestrate and produce actionable results.",
+    description: "AI agents that think, analyze and act.",
   },
   {
     icon: ShieldCheck,
-    title: "Tested & Verified",
-    description:
-      "Every released kit is intended to be validated through controlled testing before distribution.",
+    iconBg: "bg-teal-100",
+    iconColor: "text-teal-600",
+    title: "Secure & Compliant",
+    description: "Enterprise grade security and audit logs.",
   },
   {
-    icon: Server,
-    title: "Deploy Where You Need",
-    description:
-      "Designed with local, on-premise, cloud and hybrid deployment scenarios in mind.",
+    icon: Rocket,
+    iconBg: "bg-rose-100",
+    iconColor: "text-rose-500",
+    title: "Deploy Anywhere",
+    description: "Local, cloud or hybrid environments.",
   },
 ];
 
 export function FeatureStrip() {
   return (
-    <section className="bg-white border-y border-slate-100" aria-label="Key features">
+    <section className="bg-white border-y border-slate-100 shadow-sm" aria-label="Key features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map(({ icon: Icon, title, description }) => (
+          {features.map(({ icon: Icon, iconBg, iconColor, title, description }) => (
             <div key={title} className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-brand-blue" aria-hidden="true" />
+              <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center`}>
+                <Icon className={`w-5 h-5 ${iconColor}`} aria-hidden="true" />
               </div>
               <div>
                 <h3 className="text-sm font-semibold text-navy-950 mb-1">{title}</h3>

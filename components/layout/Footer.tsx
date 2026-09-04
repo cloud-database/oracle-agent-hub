@@ -1,38 +1,37 @@
 import Link from "next/link";
+import { Linkedin, Github, Youtube, Mail } from "lucide-react";
 
 const productLinks = [
   { label: "Agent Kits", href: "/agent-kits" },
-  { label: "Agents", href: "/agents" },
-  { label: "Skills", href: "/skills" },
-  { label: "Agent Lab", href: "/agent-lab" },
+  { label: "Demo", href: "/agent-lab" },
   { label: "Pricing", href: "/pricing" },
 ];
 
 const resourceLinks = [
   { label: "Documentation", href: "/documentation" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Deployment", href: "/documentation#deployment" },
   { label: "Blog", href: "#" },
+  { label: "FAQs", href: "/faq" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
-  { label: "Custom Kits", href: "/request-custom-kit" },
+  { label: "Privacy", href: "#" },
 ];
 
-const legalLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-  { label: "Cookie Policy", href: "#" },
+const socialLinks = [
+  { icon: Linkedin, label: "LinkedIn", href: "#" },
+  { icon: Github,   label: "GitHub",   href: "#" },
+  { icon: Youtube,  label: "YouTube",  href: "#" },
+  { icon: Mail,     label: "Email",    href: "/contact" },
 ];
 
 export function Footer() {
   return (
     <footer className="bg-navy-950 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
-          {/* Brand column — spans 2 cols on lg */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+          {/* Brand column */}
           <div className="col-span-2 space-y-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -43,9 +42,9 @@ export function Footer() {
               className="h-10 w-auto brightness-200"
             />
             <div>
-              <p className="text-white font-semibold text-base">OracleAgentHub</p>
+              <p className="text-white font-semibold text-base">Oracle<span className="text-brand-blue">Agent</span>Hub</p>
               <p className="text-slate-400 text-sm mt-1 leading-relaxed max-w-xs">
-                Agentic intelligence for Oracle environments.
+                Intelligence. Automation. Results.
               </p>
             </div>
           </div>
@@ -57,7 +56,7 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {productLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-slate-400 hover:text-white transition-colors"
@@ -106,34 +105,27 @@ export function Footer() {
               ))}
             </ul>
           </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white text-sm font-semibold uppercase tracking-wider mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {legalLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-sm text-slate-500">
-            © 2025 OracleAgentHub. All rights reserved.
+            © 2026 OracleAgentHub. All rights reserved. Built with{" "}
+            <span className="text-red-400">♥</span> for the Oracle Community.
           </p>
-          <p className="text-xs text-slate-600 text-center sm:text-right max-w-md">
-            Oracle is a registered trademark of Oracle Corporation. OracleAgentHub is not affiliated with or endorsed by Oracle.
-          </p>
+
+          {/* Social icons — Connect */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ icon: Icon, label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                className="w-8 h-8 rounded-md bg-navy-800 hover:bg-brand-blue flex items-center justify-center transition-colors"
+              >
+                <Icon className="w-4 h-4 text-slate-300" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
