@@ -122,7 +122,8 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-navy-800">
           <p className="text-sm text-slate-500 text-center sm:text-left">
-            © 2026 OracleAgentHub. All rights reserved. Built with{" "}
+            © 2026 <span className="text-slate-400 font-medium">Datacules LLC</span>
+            {" · "}OracleAgentHub. All rights reserved. Built with{" "}
             <span className="text-red-400">♥</span> for the Oracle Community.
           </p>
         </div>
