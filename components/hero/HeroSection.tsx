@@ -111,7 +111,7 @@ export function HeroSection() {
             <img
               src="/hero-visual.png"
               alt="Oracle 26 AI agentic visualization"
-              className="w-full max-w-[500px] rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-white/10"
+              className="w-full max-w-[520px]"
               draggable={false}
             />
           </div>
