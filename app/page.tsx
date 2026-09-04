@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/hero/HeroSection";
 import { FeatureStrip } from "@/components/hero/FeatureStrip";
 import { AgentKitCard } from "@/components/product/AgentKitCard";
 import { getFeaturedKits } from "@/data/products/agent-kits";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronRight, Mail, Settings2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "OracleAgentHub — Agentic Intelligence for Oracle Environments",
@@ -187,26 +187,31 @@ export default function HomePage() {
       </section>
 
       {/* Custom Kit CTA */}
-      <section className="py-16 bg-gradient-to-r from-navy-950 to-navy-800">
-        <div className="container-wide text-center">
-          <h2 className="text-3xl font-bold text-white mb-3">Need a Custom Oracle Agent Kit?</h2>
-          <p className="text-navy-300 mb-8 max-w-xl mx-auto">
-            Tell us what you want to automate. We can design a specialized combination of
-            Oracle-focused agents, skills and workflows around your environment and requirements.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-navy-950 transition-colors"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/request-custom-kit"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-blue text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-            >
-              Request Custom Kit <ArrowRight className="w-4 h-4" />
-            </Link>
+      <section className="py-14 bg-gradient-to-r from-white to-blue-50 border-t border-slate-100">
+        <div className="container-wide">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
+            <div>
+              <h2 className="text-2xl font-bold text-navy-950 mb-2">Want a Custom Agent Kit?</h2>
+              <p className="text-slate-600 max-w-lg">
+                We build custom agentic solutions tailored to your Oracle environment and business needs.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-medium hover:border-brand-blue hover:text-brand-blue transition-colors"
+              >
+                <Mail className="w-4 h-4" aria-hidden="true" />
+                Contact Us
+              </Link>
+              <Link
+                href="/request-custom-kit"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-blue text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              >
+                <Settings2 className="w-4 h-4" aria-hidden="true" />
+                Request Custom Kit
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Play, CheckCircle2, ChevronRight } from "lucide-react";
+import { Play, CheckCircle2, ChevronRight, Zap } from "lucide-react";
 
 const trustItems = [
   "Well Tested",
@@ -23,7 +23,8 @@ export function HeroSection() {
     <section
       className="relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #0a1628 0%, #0d1e4a 35%, #1a2f6e 65%, #0f2356 100%)",
+        background:
+          "radial-gradient(ellipse 65% 110% at 82% 55%, #0d1e4a 0%, #1a2f6e 35%, rgba(30,58,138,0.25) 58%, transparent 76%), #eef2ff",
       }}
       aria-label="Hero"
     >
@@ -32,7 +33,7 @@ export function HeroSection() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(59,130,246,0.07) 1px, transparent 1px), linear-gradient(to right, rgba(59,130,246,0.07) 1px, transparent 1px)",
+            "linear-gradient(rgba(26,86,219,0.05) 1px, transparent 1px), linear-gradient(to right, rgba(26,86,219,0.05) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
         aria-hidden="true"
@@ -63,33 +64,33 @@ export function HeroSection() {
           {/* Left: copy */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-950/60 backdrop-blur-sm px-4 py-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" aria-hidden="true" />
-              <span className="text-xs font-semibold text-blue-200 tracking-wide">
+            <div className="inline-flex items-center gap-2 rounded-full bg-navy-950/85 backdrop-blur-sm px-4 py-1.5">
+              <Zap className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400 flex-shrink-0" aria-hidden="true" />
+              <span className="text-xs font-semibold text-white tracking-wide">
                 AI-Powered • Oracle Native • Production Ready
               </span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-950 leading-tight tracking-tight">
               Smart Agents for{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-brand-blue to-brand-cyan bg-clip-text text-transparent">
                 Smarter Oracle
               </span>{" "}
               Systems
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg text-blue-200 leading-relaxed max-w-xl">
-              Discover, deploy and use ready-to-use agentic kits and tools engineered
-              for Oracle database environments.
+            <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
+              Discover and deploy ready-to-use Agentic Kits and tools built
+              to work with Oracle Database 26 AI and enterprise environments.
             </p>
 
             {/* Trust indicators */}
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               {trustItems.map((item) => (
-                <div key={item} className="flex items-center gap-1.5 text-sm text-blue-100">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" aria-hidden="true" />
+                <div key={item} className="flex items-center gap-1.5 text-sm text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" aria-hidden="true" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -99,16 +100,16 @@ export function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/agent-kits"
-                className="inline-flex items-center gap-2 rounded-xl bg-brand-blue text-white font-semibold text-base px-7 py-3.5 hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+                className="inline-flex items-center gap-2 rounded-xl bg-brand-blue text-white font-semibold text-base px-7 py-3.5 hover:bg-blue-700 transition-colors shadow-md shadow-brand-blue/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2"
               >
                 Explore Agent Kits
                 <ChevronRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <Link
                 href="/agent-lab"
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white font-semibold text-base px-7 py-3.5 hover:bg-white/20 hover:border-white/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-navy-200 bg-white text-navy-900 font-semibold text-base px-7 py-3.5 hover:border-brand-blue hover:text-brand-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2"
               >
-                <Play className="w-4 h-4 fill-white" aria-hidden="true" />
+                <Play className="w-4 h-4 text-brand-blue fill-brand-blue" aria-hidden="true" />
                 Watch Demo
               </Link>
             </div>

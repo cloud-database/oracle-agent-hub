@@ -35,6 +35,16 @@ const categoryColors: Record<string, string> = {
   "Business Intelligence": "bg-blue-50 text-blue-700",
 };
 
+const iconCircleColors: Record<string, { bg: string; color: string }> = {
+  "Database Administration": { bg: "bg-emerald-100", color: "text-emerald-600" },
+  Performance:               { bg: "bg-purple-100",  color: "text-purple-600"  },
+  Security:                  { bg: "bg-orange-100",  color: "text-orange-500"  },
+  "Schema & Documentation":  { bg: "bg-teal-100",    color: "text-teal-600"    },
+  Migration:                 { bg: "bg-rose-100",    color: "text-rose-500"    },
+  "Business Intelligence":   { bg: "bg-blue-100",    color: "text-blue-600"    },
+  "Oracle AI Database":      { bg: "bg-cyan-100",    color: "text-cyan-600"    },
+};
+
 interface AgentKitCardProps {
   kit: AgentKit;
   featured?: boolean;
@@ -43,6 +53,7 @@ interface AgentKitCardProps {
 export function AgentKitCard({ kit, featured = false }: AgentKitCardProps) {
   const Icon = iconMap[kit.icon] ?? Database;
   const categoryColor = categoryColors[kit.category] ?? "bg-slate-50 text-slate-700";
+  const circleColor = iconCircleColors[kit.category] ?? { bg: "bg-slate-100", color: "text-slate-600" };
 
   return (
     <div
@@ -55,7 +66,7 @@ export function AgentKitCard({ kit, featured = false }: AgentKitCardProps) {
       {(kit.popular || kit.new) && (
         <div className="absolute top-3 right-3 z-10">
           {kit.popular && (
-            <span className="inline-flex items-center rounded-full bg-brand-blue text-white text-xs font-semibold px-2.5 py-0.5">
+            <span className="inline-flex items-center rounded-full bg-emerald-500 text-white text-xs font-semibold px-2.5 py-0.5">
               Most Popular
             </span>
           )}
@@ -70,8 +81,8 @@ export function AgentKitCard({ kit, featured = false }: AgentKitCardProps) {
       <div className="p-6 flex-1 flex flex-col gap-4">
         {/* Header */}
         <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center">
-            <Icon className="w-6 h-6 text-brand-blue" aria-hidden="true" />
+          <div className={`flex-shrink-0 w-12 h-12 rounded-full ${circleColor.bg} flex items-center justify-center`}>
+            <Icon className={`w-6 h-6 ${circleColor.color}`} aria-hidden="true" />
           </div>
           <div className="flex-1 min-w-0">
             <span
@@ -107,7 +118,7 @@ export function AgentKitCard({ kit, featured = false }: AgentKitCardProps) {
         <ul className="space-y-1">
           {kit.capabilities.slice(0, 4).map((cap) => (
             <li key={cap} className="flex items-center gap-2 text-xs text-slate-600">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-blue flex-shrink-0" aria-hidden="true" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan flex-shrink-0" aria-hidden="true" />
               {cap}
             </li>
           ))}
