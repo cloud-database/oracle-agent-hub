@@ -1,0 +1,83 @@
+"use client";
+
+export const dynamic = "force-dynamic";
+
+import { useState, useMemo } from "react";
+import { Search } from "lucide-react";
+import { AgentCard } from "@/components/product/AgentCard";
+import { CategoryFilter } from "@/components/product/CategoryFilter";
+import { agents, agentCategories } from "@/data/products/agents";
+
+export default function AgentsPage() {
+  const [category, setCategory] = useState("All");
+  const [query, setQuery] = useState("");
+
+  const filtered = useMemo(() => {
+    return agents.filter((a) => {
+      const matchCat = category === "All" || a.category === category;
+      const q = query.toLowerCase();
+      const matchQ =
+        !q ||
+        a.name.toLowerCase().includes(q) ||
+        a.description.toLowerCase().includes(q) ||
+        a.purpose.toLowerCase().includes(q);
+      return matchCat && matchQ;
+    });
+  }, [category, query]);
+
+  return (
+    <div className="bg-white min-h-screen">
+      {/* Header */}
+      <div className="bg-slate-50 border-b border-slate-200">
+        <div className="container-wide py-12">
+          <h1 className="text-4xl font-bold text-navy-950 mb-2">Agents</h1>
+          <p className="text-navy-600 max-w-2xl">
+            Browse the individual Oracle-focused agents that power our Agent Kits.
+          </p>
+        </div>
+      </div>
+
+      <div className="container-wide py-10">
+        {/* Search & Filter */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <div className="relative flex-1 max-w-sm">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400" />
+            <input
+              type="text"
+              placeholder="Search agents..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full pl-9 pr-4 py-2.5 border border-slate-300 rounded-lg text-sm text-navy-900 placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+            />
+          </div>
+        </div>
+
+        <div className="mb-6">
+          <CategoryFilter
+            categories={agentCategories}
+            selected={category}
+            onChange={setCategory}
+          />
+        </div>
+
+        <p className="text-sm text-navy-500 mb-6">
+          Showing <span className="font-semibold text-navy-900">{filtered.length}</span> agent
+          {filtered.length !== 1 ? "s" : ""}
+        </p>
+
+        {filtered.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {filtered.map((agent) => (
+              <AgentCard key={agent.id} agent={agent} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20 text-navy-400">
+            <p className="text-lg font-medium">No agents found</p>
+            <p className="text-sm mt-1">Try a different search or category.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
